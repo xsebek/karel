@@ -28,5 +28,8 @@ setuptools.setup(
         "Intended Audience :: Education ",
     ],
     python_requires=">=3.6",
+    install_requires=[
+        "windows-curses >= 2.2; platform_system=='Windows'"
+        ],
     entry_points={"console_scripts": ["karel=karel_robot.run.main:main"]},
 )
