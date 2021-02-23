@@ -6,7 +6,7 @@ import setuptools
 
 with open("README.md", "r", encoding="utf8") as fh:
     long_description = fh.read().replace(
-        "images", "https://github.com/xsebek/karel/blob/master/images"
+        "images/", "https://raw.githubusercontent.com/xsebek/karel/master/images/"
     )
 
 setuptools.setup(

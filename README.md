@@ -86,9 +86,9 @@ These are the functions you can use to command Karel after importing from `karel
 | `set_karel_beepers(None)`| Set Karel's beepers, with `None` as inf.       |
 | `set_speed(100)`      | How fast Karel moves, 0 to 100                    |
 | `pause()`             | Pause execution, press any key to continue        |
-| `message(text, pause)`    | Show a text message to user.                      |
-| `save()` | Save the map in file specified by `--output`. |
-| `exit()` | End execution |
+| `message(text, pause)`    | Show a text message to user.                  |
+| `save()`              | Save the map in file specified by `--output`.     |
+| `exit()`              | End execution                                     |
 
 
 Note that the map is loaded and screen started in the moment of import:
@@ -147,7 +147,8 @@ python3 YOUR_PROGRAM.py  # -m YOUR_MAP.km or other options
 Press <kbd>Q</kbd> to quit or <kbd>P</kbd> to pause program.
 Program pauses when Karel tries to make an illegal move.
 
-### Example treasure
+### Example treasure 💰
+
 <details>
   <summary>Click to expand!</summary>
 Run the program `treasure.py` (also below) with worlds `00` - `03_window`.
@@ -181,16 +182,17 @@ The idea comes from a [paper on cooperative learning in CS1](https://dl.acm.org/
 </details>
 
 
-### Langton's ant
+### Langton's ant 🐜
+
 <details>
   <summary>Click to expand!</summary>
+
 Here is a short animation of Karel playing
 Langton's ant.<sup>[[wiki]](https://en.wikipedia.org/wiki/Langton%27s_ant)</sup>
 
 <p>
   <img src="images/langton_optimized.gif" alt="langton_optimized" width="40%"/>
 </p>
-
 The program `ant.py` (also below)  uses a single beeper to mark a tile as "Black"
 and Karel can pick it up to make it "White".
 The ant moves seemingly randomly, but makes a nice picture in about 11000 steps.
@@ -279,17 +281,17 @@ which you then <kbd>END</kbd>.
 These statements are the simple building blocks you can use
 and combine with your new procedures:
 
-|                  Statement                  | Note                                                         |
-| :-----------------------------------------: | ------------------------------------------------------------ |
-|               <kbd>MOVE</kbd>               | Karel steps forward.                                         |
-|               <kbd>LEFT</kbd>               | Karel turns 90° left - note that there is no `RIGHT` :)      |
-|               <kbd>PUT</kbd>                | Karel puts down one beeper.                                  |
-|               <kbd>PICK</kbd>               | Karel picks up one beeper.                                   |
-|               <kbd>SKIP</kbd>               | Does nothing - like `pass` in Python.                        |
-| <kbd>IFWALL</kbd> <kbd>✓</kbd> <kbd>𐄂</kbd> | If `front_is_blocked()` then `pass` else `move()`            |
-| <kbd>IFMARK</kbd> <kbd>✓</kbd> <kbd>𐄂</kbd> | If `beeper_is_present()` then `pick_beeper()` else `put_beeper()` |
+|                  Statement                  | Note                                                                  |
+| :-----------------------------------------: | --------------------------------------------------------------------- |
+|               <kbd>MOVE</kbd>               | Karel steps forward.                                                  |
+|               <kbd>LEFT</kbd>               | Karel turns 90° left - note that there is no `RIGHT` :)               |
+|               <kbd>PUT</kbd>                | Karel puts down one beeper.                                           |
+|               <kbd>PICK</kbd>               | Karel picks up one beeper.                                            |
+|               <kbd>SKIP</kbd>               | Does nothing - like `pass` in Python.                                 |
+| <kbd>IFWALL</kbd> <kbd>✓</kbd> <kbd>𐄂</kbd> | If `front_is_blocked()` then run the first procedure else the second  |
+| <kbd>IFMARK</kbd> <kbd>✓</kbd> <kbd>𐄂</kbd> | If `beeper_is_present()` then run the first procedure else the second |
 
-The interpret in `karel_robot.parsers.interpret` is used by the `karel` executable:
+The interpret in `karel_robot.parsers.interpret` is used by the `karel` executable script:
 
 ```sh
 karel --program programs/graph/3_treasure.ks --map world/maze/treasure/07.km2 --speed 20
@@ -312,4 +314,4 @@ If you want to contribute, check out the `karel_robot` folder [README](karel_rob
 This project is released under GNU GPLv3 (or later) license in hopes that
 it will be useful. You are encouraged to share this *freely* and can
 even sell it provided everyone will still be able to read and modify
-the source code, just like you are and keeps the license. :wink:
+the source code (just like you are) and keeps the license. :wink:
