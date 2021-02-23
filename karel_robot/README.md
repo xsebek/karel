@@ -16,7 +16,7 @@ def example(window):
     window.put_beeper()
 
 def main():
-    with open("../world/1_window.km") as m:
+    with open("../world/1_window.km", encoding="utf8") as m:
         m = MapParser(lines=m, new_style_map=False)
 
     with WindowOpen(

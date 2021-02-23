@@ -4,14 +4,14 @@ See the README in linked GitHub repository for more details.
 """
 import setuptools
 
-with open("README.md", "r") as fh:
+with open("README.md", "r", encoding="utf8") as fh:
     long_description = fh.read().replace(
         "images", "https://github.com/xsebek/karel/blob/master/images"
     )
 
 setuptools.setup(
     name="karel_robot",
-    version="1.0.1",
+    version="1.1.0",
     author="Ondřej Šebek",
     author_email="xsebek@fi.muni.cz",
     description="Karel the Robot simple library and interactive executable",
