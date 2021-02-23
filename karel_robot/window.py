@@ -20,7 +20,7 @@ A GPLv3/later license applies::
     as published by the Free Software Foundation, either version 3
     of the License, or (at your option) any later version.
 
-    Foobar is distributed in the hope that it will be useful,
+    The package is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
@@ -61,6 +61,7 @@ class Window(BoardView):
     class Colors:
         """ Curses colors for printing in terminal. """
 
+        # TODO: rename to actual colors?
         wall: int
         empty: int
         karel: int
@@ -322,7 +323,10 @@ class Window(BoardView):
             text = text + " Press any key to continue"
         self.message_win.insertln()
         if text:
-            self.message_win.addstr(0, 0, text[: self.x_screen], color)
+            text = (
+                text if len(text) < self.x_screen else text[: self.x_screen - 4] + "..."
+            )
+            self.message_win.addstr(0, 0, text, color)
         self.message_win.refresh()
         if pause:
             handle = self.handle.copy()
