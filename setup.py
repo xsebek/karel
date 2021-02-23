@@ -4,14 +4,14 @@ See the README in linked GitHub repository for more details.
 """
 import setuptools
 
-with open("README.md", "r") as fh:
+with open("README.md", "r", encoding="utf8") as fh:
     long_description = fh.read().replace(
-        "images", "https://github.com/xsebek/karel/blob/master/images"
+        "images/", "https://raw.githubusercontent.com/xsebek/karel/master/images/"
     )
 
 setuptools.setup(
     name="karel_robot",
-    version="1.0.1",
+    version="1.1.0",
     author="Ondřej Šebek",
     author_email="xsebek@fi.muni.cz",
     description="Karel the Robot simple library and interactive executable",
@@ -28,5 +28,8 @@ setuptools.setup(
         "Intended Audience :: Education ",
     ],
     python_requires=">=3.6",
+    install_requires=[
+        "windows-curses >= 2.2; platform_system=='Windows'"
+        ],
     entry_points={"console_scripts": ["karel=karel_robot.run.main:main"]},
 )
